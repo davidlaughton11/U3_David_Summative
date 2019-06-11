@@ -40,14 +40,20 @@ namespace U3_David_Summative
                 guessedLtrs.Text += ltrEntered;
                 if (outputwordrandom.Contains(ltrEntered))
                 {
-                    int index = outputwordrandom.IndexOf(ltrEntered);
-                    //for words with two of the same letters
-                    int indexx = outputwordrandom.LastIndexOf(ltrEntered);
-
-                    output4[index * 2] = ltrEntered.ToString();
-                    //to get two of the same letters in output
-                    output4[indexx * 2] = ltrEntered.ToString();
-                    // output lives
+                    int sp = 0;
+                    int where = 0;
+                    int[] Index = new int[0];
+                    while (sp < outputwordrandom.Length && outputwordrandom.IndexOf(ltrEntered, sp) >= 0)
+                    {
+                        Array.Resize(ref Index, Index.Length + 1);
+                        if (outputwordrandom.IndexOf(ltrEntered, sp) >= 0)
+                        {
+                            where = outputwordrandom.IndexOf(ltrEntered, sp);
+                            Index[sp] = where;
+                            output4[Index[sp] * 2] = ltrEntered.ToString();
+                        }
+                        sp++;
+                    }
                 }
                 else
                 {
@@ -67,14 +73,20 @@ namespace U3_David_Summative
                 guessedLtrs.Text += ltrEntered;
                 if (outputwordrandom.Contains(ltrEntered))
                 {
-                    int index = outputwordrandom.IndexOf(ltrEntered);
-                    //for words with two of the same letters
-                    int indexx = outputwordrandom.LastIndexOf(ltrEntered);
-
-                    output8[index * 2] = ltrEntered.ToString();
-                    //to get two of the same letters in output
-                    output8[indexx * 2] = ltrEntered.ToString();
-                    // output lives
+                    int sp = 0;
+                    int where = 0;
+                    int[] Index = new int[0];
+                    while (sp < outputwordrandom.Length && outputwordrandom.IndexOf(ltrEntered, sp) >= 0)
+                    {
+                        Array.Resize(ref Index, Index.Length + 1);
+                        if (outputwordrandom.IndexOf(ltrEntered, sp) >= 0)
+                        {
+                            where = outputwordrandom.IndexOf(ltrEntered, sp);
+                            Index[sp] = where;
+                            output8[Index[sp] * 2 ] = ltrEntered.ToString();
+                        }
+                        sp++;
+                    }                    
                 }
                 else
                 {
@@ -156,7 +168,7 @@ namespace U3_David_Summative
             //word generation for easy + hard
             int randomnumber;
             //generates random number within 0-20
-            Random r = new Random();
+            Random r = new Random(1922479367);
             randomnumber = r.Next(20);
             return randomnumber;
         }
