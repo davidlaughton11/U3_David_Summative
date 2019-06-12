@@ -168,7 +168,7 @@ namespace U3_David_Summative
             //word generation for easy + hard
             int randomnumber;
             //generates random number within 0-20
-            Random r = new Random(1922479367);
+            Random r = new Random();
             randomnumber = r.Next(20);
             return randomnumber;
         }
